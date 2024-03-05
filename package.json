@@ -1,0 +1,15 @@
+{
+  "name": "backendrollingcoffee",
+  "version": "1.0.0",
+  "description": "BackEnd del proyecto RollingCoffee",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Ruiz, Sergio",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.3"
+  }
+}
