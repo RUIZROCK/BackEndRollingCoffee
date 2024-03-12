@@ -6,4 +6,4 @@ console.log('bienvenidos c74i')
 
 // 2 - configurar los middlewares
 
-// 3 - configuracion de las rutas
+// 3 - configuracion de las rutas 
