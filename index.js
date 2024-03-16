@@ -5,7 +5,7 @@ import 'dotenv/config'
 import path from 'path'
 import { fileURLToPath } from 'url'
 import productosRouter from './src/routes/productos.routes.js'
-
+import "./src/database/database.js"
 
 console.log('bienvenidos c74i')
 
@@ -19,10 +19,10 @@ app.listen(app.get("puerto"),()=>{ //bajo este puerto realiza esta funcion
     console.log("estoy en el puerto "+app.get("puerto"))
 })
 
-// 2 - configurar los middlewares
+// 2 - configurar los middlewares - funciones intermedias que se ejecutan antes de las rutas
 
-app.use(cors())
-app.use(morgan('dev'))
+app.use(cors()) //permite conexiones remotas
+app.use(morgan('dev')) //muestra info extra en la terminal
 app.use(express.json()) //permite interpretar el formato json
 app.use(express.urlencoded({extended:true})) //permite interpretar los datos del body de un request
 
@@ -35,6 +35,7 @@ const __dirname=path.dirname(__filename)
 app.use(express.static(path.join(__dirname, '/public')))
 
 
-// 3 - configuracion de las rutas 
+// 3 - configuracion de las rutas - rutas: las url de solicitudes al servidor
 
+//http:localhost:1231/productos
 app.use('/',productosRouter)
