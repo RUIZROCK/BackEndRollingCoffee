@@ -42,13 +42,11 @@ const productoSchema = new Schema({
         validate:{
             validator:function(valor){
                 //validar el valor con un patron (regex) usando test
-                return //true o false
+                return true //o false
             }
         },message:props=>`${props.value} no es una url de imagen valida.`,
         unique:true
-    },
-
-    disponible:{type:String, required:true}
+    }
 });
 
 //generamos el modelo del producto que tendra el schema definido anteriormente (productoSchema)
