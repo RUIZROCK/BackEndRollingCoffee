@@ -79,7 +79,31 @@ export const editarProducto=async (req,res)=>{
     } catch (error) {
         console.error(error)
         res.status(500).json({
-            message:"Ocurrio un error y no se pudo editar el producto"
+            message:"Ocurrio un error y no se pudo realizo la operacion (editar)"
+        })
+    }
+}
+
+export const borrarProducto=async (req,res)=>{
+    try {
+        //extraer id del producto a editar y los datos a editar
+        const id=req.params.id
+        //buscar el producto por id en db
+        const productoBuscado = await Producto.findById(id)
+        //enviar un mensaje de error si no existe el producto
+        if(!productoBuscado){
+            return res.status(404).json({
+                message:"No se encontro el producto"
+            })
+        }   
+        //editar el producto si existe
+        await Producto.findByIdAndDelete(id,req.body)
+        //responder con el producto
+        res.status(200).json({message:"producto borrado"})
+    } catch (error) {
+        console.error(error)
+        res.status(500).json({
+            message:"Ocurrio un error y no se pudo realizo la operacion (borrar)"
         })
     }
 }
