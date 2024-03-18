@@ -7,8 +7,6 @@ import { fileURLToPath } from 'url'
 import productosRouter from './src/routes/productos.routes.js'
 import "./src/database/database.js"
 
-console.log('bienvenidos c74i')
-
 // 1 - configurar un puerto
 const app = express()
 
@@ -16,7 +14,7 @@ app.set("puerto",process.env.PORT || 4000) // process.env.PORT || 4000 para trae
 
 
 app.listen(app.get("puerto"),()=>{ //bajo este puerto realiza esta funcion
-    console.log("estoy en el puerto "+app.get("puerto"))
+    console.info("estoy en el puerto "+app.get("puerto"))
 })
 
 // 2 - configurar los middlewares - funciones intermedias que se ejecutan antes de las rutas
